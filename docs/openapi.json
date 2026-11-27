@@ -1,0 +1,2345 @@
+{
+  "components": {
+    "schemas": {
+      "CardImage": {
+        "properties": {
+          "credit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credit"
+          },
+          "file": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "License"
+          },
+          "license_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "License Url"
+          },
+          "page_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Url"
+          },
+          "src": {
+            "title": "Src",
+            "type": "string"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          }
+        },
+        "required": [
+          "src",
+          "subject"
+        ],
+        "title": "CardImage",
+        "type": "object"
+      },
+      "ConfirmBody": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": [
+              "domestic_orchestra",
+              "overseas_orchestra_visit",
+              "piano_recital",
+              "other"
+            ],
+            "title": "Category",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "prefecture_overrides": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "title": "Prefecture Overrides",
+            "type": "object"
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "title": "ConfirmBody",
+        "type": "object"
+      },
+      "DiscoverItem": {
+        "properties": {
+          "announcement_basis": {
+            "enum": [
+              "official",
+              "first_verified_fallback"
+            ],
+            "title": "Announcement Basis",
+            "type": "string"
+          },
+          "announcement_label": {
+            "title": "Announcement Label",
+            "type": "string"
+          },
+          "announcement_sort_date": {
+            "title": "Announcement Sort Date",
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "domestic_orchestra",
+              "overseas_orchestra_visit",
+              "piano_recital",
+              "other"
+            ],
+            "title": "Category",
+            "type": "string"
+          },
+          "composers": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Composers",
+            "type": "array"
+          },
+          "concert_id": {
+            "title": "Concert Id",
+            "type": "string"
+          },
+          "conductors": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Conductors",
+            "type": "array"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CardImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "last_verified_at": {
+            "title": "Last Verified At",
+            "type": "string"
+          },
+          "orchestras": {
+            "default": [],
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "title": "Orchestras",
+            "type": "array"
+          },
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id"
+          },
+          "other_sources": {
+            "default": [],
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "title": "Other Sources",
+            "type": "array"
+          },
+          "performance_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Performance Ids",
+            "type": "array"
+          },
+          "performances": {
+            "items": {
+              "$ref": "#/components/schemas/DiscoverPerformance"
+            },
+            "title": "Performances",
+            "type": "array"
+          },
+          "pieces": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/DiscoverPiece"
+            },
+            "title": "Pieces",
+            "type": "array"
+          },
+          "region_group": {
+            "anyOf": [
+              {
+                "enum": [
+                  "kanto",
+                  "rest_of_japan"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Region Group"
+          },
+          "soloists": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Soloists",
+            "type": "array"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "ticket_status": {
+            "enum": [
+              "not_announced",
+              "announced",
+              "open",
+              "closed",
+              "unknown"
+            ],
+            "title": "Ticket Status",
+            "type": "string"
+          },
+          "title_ja": {
+            "title": "Title Ja",
+            "type": "string"
+          },
+          "user_pickup": {
+            "title": "User Pickup",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "concert_id",
+          "category",
+          "title_ja",
+          "announcement_sort_date",
+          "announcement_basis",
+          "announcement_label",
+          "region_group",
+          "performance_ids",
+          "performances",
+          "ticket_status",
+          "source_url",
+          "last_verified_at",
+          "user_pickup"
+        ],
+        "title": "DiscoverItem",
+        "type": "object"
+      },
+      "DiscoverPerformance": {
+        "properties": {
+          "date_precision": {
+            "enum": [
+              "exact_time",
+              "date_only",
+              "month_only",
+              "unknown"
+            ],
+            "title": "Date Precision",
+            "type": "string"
+          },
+          "last_seen_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Seen At"
+          },
+          "local_date": {
+            "title": "Local Date",
+            "type": "string"
+          },
+          "performance_id": {
+            "title": "Performance Id",
+            "type": "string"
+          },
+          "prefecture_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefecture Code"
+          },
+          "starts_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Starts At"
+          },
+          "venue_name": {
+            "title": "Venue Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "performance_id",
+          "local_date",
+          "starts_at",
+          "date_precision",
+          "prefecture_code",
+          "venue_name",
+          "last_seen_at"
+        ],
+        "title": "DiscoverPerformance",
+        "type": "object"
+      },
+      "DiscoverPiece": {
+        "description": "One programme row as the browse pages need it (ADR-0010): the composer and the piece as written, plus the reviewed keys when the alias table knows them.",
+        "properties": {
+          "composer": {
+            "default": "",
+            "title": "Composer",
+            "type": "string"
+          },
+          "composer_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composer Key"
+          },
+          "work": {
+            "default": "",
+            "title": "Work",
+            "type": "string"
+          },
+          "work_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Work Key"
+          }
+        },
+        "title": "DiscoverPiece",
+        "type": "object"
+      },
+      "DiscoverResponse": {
+        "properties": {
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "coverage_notice": {
+            "title": "Coverage Notice",
+            "type": "string"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/Filters"
+          },
+          "groups": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "title": "Groups",
+            "type": "array"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/DiscoverItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "window": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Window",
+            "type": "object"
+          }
+        },
+        "required": [
+          "filters",
+          "as_of",
+          "window",
+          "total",
+          "groups",
+          "items",
+          "coverage_notice"
+        ],
+        "title": "DiscoverResponse",
+        "type": "object"
+      },
+      "DuplicateBody": {
+        "additionalProperties": false,
+        "properties": {
+          "concert_id": {
+            "title": "Concert Id",
+            "type": "string"
+          },
+          "decision": {
+            "enum": [
+              "duplicate_of",
+              "different"
+            ],
+            "title": "Decision",
+            "type": "string"
+          },
+          "other_concert_id": {
+            "title": "Other Concert Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "concert_id",
+          "other_concert_id",
+          "decision"
+        ],
+        "title": "DuplicateBody",
+        "type": "object"
+      },
+      "Filters": {
+        "additionalProperties": true,
+        "properties": {
+          "category": {
+            "anyOf": [
+              {
+                "enum": [
+                  "domestic_orchestra",
+                  "overseas_orchestra_visit",
+                  "piano_recital",
+                  "other"
+                ],
+                "type": "string"
+              },
+              {
+                "const": "all",
+                "type": "string"
+              }
+            ],
+            "title": "Category"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "months": {
+            "enum": [
+              12,
+              24
+            ],
+            "title": "Months",
+            "type": "integer"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "region_mode": {
+            "enum": [
+              "kanto_first",
+              "nationwide"
+            ],
+            "title": "Region Mode",
+            "type": "string"
+          },
+          "sort": {
+            "const": "announcement_desc",
+            "title": "Sort",
+            "type": "string"
+          },
+          "view": {
+            "const": "concerts",
+            "title": "View",
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "months",
+          "region_mode",
+          "sort",
+          "view",
+          "page",
+          "limit"
+        ],
+        "title": "Filters",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "ImportBody": {
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "ImportBody",
+        "type": "object"
+      },
+      "PickupBody": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "priority": {
+            "default": "normal",
+            "enum": [
+              "normal",
+              "high"
+            ],
+            "title": "Priority",
+            "type": "string"
+          }
+        },
+        "title": "PickupBody",
+        "type": "object"
+      },
+      "ReminderBody": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "milestone": {
+            "enum": [
+              "sale_start",
+              "sale_end"
+            ],
+            "title": "Milestone",
+            "type": "string"
+          },
+          "offset_minutes": {
+            "maximum": 43200.0,
+            "minimum": 0.0,
+            "title": "Offset Minutes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "milestone",
+          "offset_minutes",
+          "enabled"
+        ],
+        "title": "ReminderBody",
+        "type": "object"
+      },
+      "ReviewConfirmBody": {
+        "additionalProperties": false,
+        "properties": {
+          "category_overrides": {
+            "additionalProperties": {
+              "enum": [
+                "domestic_orchestra",
+                "overseas_orchestra_visit",
+                "piano_recital",
+                "other"
+              ],
+              "type": "string"
+            },
+            "default": {},
+            "title": "Category Overrides",
+            "type": "object"
+          },
+          "concert_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 200,
+            "minItems": 1,
+            "title": "Concert Ids",
+            "type": "array"
+          },
+          "prefecture_overrides": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "title": "Prefecture Overrides",
+            "type": "object"
+          }
+        },
+        "required": [
+          "concert_ids"
+        ],
+        "title": "ReviewConfirmBody",
+        "type": "object"
+      },
+      "StateBody": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "status": {
+            "enum": [
+              "interested",
+              "planning",
+              "applied",
+              "won",
+              "purchased",
+              "skipped",
+              "attended"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "StateBody",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Classical Radar API",
+    "version": "1.5-p1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/calendar": {
+      "get": {
+        "operationId": "get_calendar_api_v1_calendar_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "schema": {
+              "format": "date",
+              "title": "From",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "schema": {
+              "format": "date",
+              "title": "To",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Calendar"
+      }
+    },
+    "/api/v1/concerts/{concert_id}": {
+      "get": {
+        "operationId": "get_concert_api_v1_concerts__concert_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Concert"
+      }
+    },
+    "/api/v1/discover": {
+      "get": {
+        "operationId": "get_discover_api_v1_discover_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "domestic_orchestra",
+                    "overseas_orchestra_visit",
+                    "piano_recital",
+                    "other"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "const": "all",
+                  "type": "string"
+                }
+              ],
+              "default": "all",
+              "title": "Category"
+            }
+          },
+          {
+            "in": "query",
+            "name": "months",
+            "required": false,
+            "schema": {
+              "default": 12,
+              "enum": [
+                12,
+                24
+              ],
+              "title": "Months",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "region_mode",
+            "required": false,
+            "schema": {
+              "default": "kanto_first",
+              "enum": [
+                "kanto_first",
+                "nationwide"
+              ],
+              "title": "Region Mode",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "const": "announcement_desc",
+              "default": "announcement_desc",
+              "title": "Sort",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "title": "Page",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "orchestra",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Orchestra",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "composer",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Composer",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "work",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Work",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "conductor",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Conductor",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "performer",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Performer",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "venue",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Venue",
+              "type": "array"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiscoverResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Discover"
+      }
+    },
+    "/api/v1/discover/announcements": {
+      "get": {
+        "operationId": "get_announcements_api_v1_discover_announcements_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Announcements"
+      }
+    },
+    "/api/v1/discover/coverage": {
+      "get": {
+        "operationId": "get_coverage_api_v1_discover_coverage_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Coverage"
+      }
+    },
+    "/api/v1/discover/facets": {
+      "get": {
+        "operationId": "get_facets_api_v1_discover_facets_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "domestic_orchestra",
+                    "overseas_orchestra_visit",
+                    "piano_recital",
+                    "other"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "const": "all",
+                  "type": "string"
+                }
+              ],
+              "default": "all",
+              "title": "Category"
+            }
+          },
+          {
+            "in": "query",
+            "name": "months",
+            "required": false,
+            "schema": {
+              "default": 12,
+              "enum": [
+                12,
+                24
+              ],
+              "title": "Months",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "orchestra",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Orchestra",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "composer",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Composer",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "work",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Work",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "conductor",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Conductor",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "performer",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Performer",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "venue",
+            "required": false,
+            "schema": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Venue",
+              "type": "array"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Facets"
+      }
+    },
+    "/api/v1/discover/leads": {
+      "get": {
+        "operationId": "get_leads_api_v1_discover_leads_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Leads"
+      }
+    },
+    "/api/v1/import-url": {
+      "post": {
+        "operationId": "post_import_api_v1_import_url_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Import"
+      }
+    },
+    "/api/v1/import-url/{import_id}/confirm": {
+      "post": {
+        "operationId": "post_confirm_api_v1_import_url__import_id__confirm_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "import_id",
+            "required": true,
+            "schema": {
+              "title": "Import Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Confirm"
+      }
+    },
+    "/api/v1/import-url/{import_id}/reject": {
+      "post": {
+        "operationId": "post_reject_api_v1_import_url__import_id__reject_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "import_id",
+            "required": true,
+            "schema": {
+              "title": "Import Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "note",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Note"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Reject"
+      }
+    },
+    "/api/v1/leads": {
+      "get": {
+        "description": "Second-hand tour leads (ADR-0007): never official concerts, never in /discover. Leads an official concert already covers are flagged.",
+        "operationId": "get_leads_api_v1_leads_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Leads"
+      }
+    },
+    "/api/v1/leads/{lead_id}": {
+      "get": {
+        "operationId": "get_lead_api_v1_leads__lead_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lead_id",
+            "required": true,
+            "schema": {
+              "title": "Lead Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Lead"
+      }
+    },
+    "/api/v1/me/performances/{performance_id}/state": {
+      "put": {
+        "operationId": "put_state_api_v1_me_performances__performance_id__state_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "performance_id",
+            "required": true,
+            "schema": {
+              "title": "Performance Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StateBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put State"
+      }
+    },
+    "/api/v1/me/pickups": {
+      "get": {
+        "operationId": "list_pickups_api_v1_me_pickups_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Pickups"
+      }
+    },
+    "/api/v1/me/pickups/{concert_id}": {
+      "delete": {
+        "operationId": "delete_pickup_api_v1_me_pickups__concert_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Pickup"
+      },
+      "put": {
+        "operationId": "put_pickup_api_v1_me_pickups__concert_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PickupBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Pickup"
+      }
+    },
+    "/api/v1/me/plans": {
+      "get": {
+        "operationId": "list_plans_api_v1_me_plans_get",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Plans"
+      }
+    },
+    "/api/v1/me/plans/{concert_id}": {
+      "delete": {
+        "operationId": "delete_plan_api_v1_me_plans__concert_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Plan"
+      },
+      "put": {
+        "operationId": "put_plan_api_v1_me_plans__concert_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Plan"
+      }
+    },
+    "/api/v1/me/reminders/{ticket_phase_id}": {
+      "put": {
+        "operationId": "put_reminder_api_v1_me_reminders__ticket_phase_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ticket_phase_id",
+            "required": true,
+            "schema": {
+              "title": "Ticket Phase Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReminderBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Reminder"
+      }
+    },
+    "/api/v1/review/candidates": {
+      "get": {
+        "operationId": "get_review_api_v1_review_candidates_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "source_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "title": "Page",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 200,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Review"
+      }
+    },
+    "/api/v1/review/confirm": {
+      "post": {
+        "operationId": "post_review_confirm_api_v1_review_confirm_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewConfirmBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Review Confirm"
+      }
+    },
+    "/api/v1/review/duplicates": {
+      "put": {
+        "operationId": "put_duplicate_api_v1_review_duplicates_put",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DuplicateBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Duplicate"
+      }
+    },
+    "/api/v1/review/duplicates/{concert_id}/{other_concert_id}": {
+      "delete": {
+        "operationId": "delete_duplicate_api_v1_review_duplicates__concert_id___other_concert_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "concert_id",
+            "required": true,
+            "schema": {
+              "title": "Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "other_concert_id",
+            "required": true,
+            "schema": {
+              "title": "Other Concert Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Duplicate"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "classical-radar"
+version = "0.1.0"
+description = "Evidence-first Japanese classical concert source feasibility POC"
+requires-python = ">=3.11"
+dependencies = ["httpx==0.28.1", "beautifulsoup4==4.15.0", "pydantic==2.14.2", "fastapi==0.162.0", "uvicorn==0.54.0", "pypdf==7.1.0"]
+
+[project.scripts]
+classical-radar = "classical_radar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+classical_radar = ["web/*", "web/fonts/*", "season_posters/*"]

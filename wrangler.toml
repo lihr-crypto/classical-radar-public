@@ -1,0 +1,18 @@
+# Cloudflare Pages project for the Classical Radar web app. See docs/DEPLOY_CLOUDFLARE.md for the one-time setup.
+name = "classical-radar"
+pages_build_output_dir = "site"
+compatibility_date = "2024-11-01"
+
+# Personal state (pickups, performance states, reminders) per signed-in user.
+# The id below is a placeholder on purpose: scripts/cf_bootstrap.py creates/finds the namespace and rewrites it in the deploy job
+# (only in the CI checkout; do not commit real values - tests/test_site.py expects the fail-closed placeholders).
+# For local `wrangler pages dev`, put real values here temporarily and do not commit them (ids are not secrets).
+[[kv_namespaces]]
+binding = "CR_STATE"
+id = "00000000000000000000000000000000"
+
+[vars]
+# Left empty in git on purpose; cf_bootstrap.py fills them in the deploy job from the Access application it creates. Not secrets.
+# While either is empty, /api/me refuses every request (fail closed).
+ACCESS_TEAM_DOMAIN = ""   # e.g. "yourteam.cloudflareaccess.com"
+ACCESS_AUD = ""           # the application's "Application Audience (AUD) Tag"

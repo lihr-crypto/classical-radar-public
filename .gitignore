@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.env.*
+!.env.example
+.DS_Store
+evidence/raw/
+evidence/cache/
+evidence/local-*
+data/
+*.db
+site/
+.wrangler/
+node_modules/
+/build/

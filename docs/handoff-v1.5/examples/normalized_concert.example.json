@@ -1,0 +1,70 @@
+{
+  "_notice": "FICTIONAL SCHEMA EXAMPLE; DO NOT IMPORT AS REAL EVENT",
+  "concert": {
+    "id": "demo-concert-001",
+    "category": "domestic_orchestra",
+    "title_ja": "架空の交響曲演奏会",
+    "organization_id": "nhkso",
+    "verification_status": "official_confirmed",
+    "official_announcement_date": null,
+    "first_verified_at": "2026-10-31T01:00:00Z",
+    "last_material_change_at": null
+  },
+  "program_items": [
+    {
+      "position": 1,
+      "raw_text": "架空の作曲家：架空の交響曲",
+      "composer_display": "架空の作曲家",
+      "composer_key": null,
+      "work_display": "架空の交響曲",
+      "work_key": null
+    }
+  ],
+  "concert_artists": [
+    {
+      "name_display": "架空の指揮者",
+      "role": "conductor"
+    }
+  ],
+  "performances": [
+    {
+      "id": "demo-performance-001",
+      "concert_id": "demo-concert-001",
+      "confirmation_status": "official_confirmed",
+      "status": "scheduled",
+      "country_code": "JP",
+      "prefecture_code": "13",
+      "venue_name": "架空ホール",
+      "starts_at": "2027-05-20T19:00:00+09:00",
+      "local_date": "2027-05-20",
+      "date_precision": "exact_time",
+      "ticket_phases": [
+        {
+          "id": "demo-ticket-001",
+          "performance_id": "demo-performance-001",
+          "phase_type": "general_sale",
+          "channel": "official",
+          "eligibility": null,
+          "starts_at": null,
+          "ends_at": null,
+          "result_at": null,
+          "payment_due_at": null,
+          "start_precision": "unknown",
+          "end_precision": "unknown",
+          "current_status": "not_announced",
+          "source_document_id": "demo-source-001"
+        }
+      ]
+    }
+  ],
+  "source_document": {
+    "id": "demo-source-001",
+    "source_id": "nhkso",
+    "url": "https://example.invalid/DEMO_NOT_REAL",
+    "kind": "detail",
+    "published_on": null,
+    "first_seen_at": "2026-10-31T01:00:00Z",
+    "last_verified_at": "2026-10-31T01:00:00Z",
+    "policy_status": "unknown"
+  }
+}

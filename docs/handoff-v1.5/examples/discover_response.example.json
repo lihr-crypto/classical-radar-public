@@ -1,0 +1,42 @@
+{
+  "_notice": "FICTIONAL DISCOVERY API RESPONSE; NO LIVE DATA",
+  "filters": {
+    "category": "all",
+    "months": 12,
+    "region_mode": "kanto_first",
+    "sort": "announcement_desc",
+    "view": "concerts",
+    "page": 1,
+    "limit": 20
+  },
+  "as_of": "2026-10-31T01:00:00Z",
+  "total": 1,
+  "groups": [
+    {
+      "key": "kanto",
+      "title": "首都圈"
+    },
+    {
+      "key": "rest_of_japan",
+      "title": "日本其他地区"
+    }
+  ],
+  "items": [
+    {
+      "concert_id": "demo-concert-001",
+      "category": "domestic_orchestra",
+      "announcement_sort_date": "2026-10-31",
+      "announcement_basis": "first_verified_fallback",
+      "announcement_label": "首次收录",
+      "region_group": "kanto",
+      "performance_ids": [
+        "demo-performance-001"
+      ],
+      "ticket_status": "not_announced",
+      "source_url": "https://example.invalid/DEMO_NOT_REAL",
+      "last_verified_at": "2026-10-31T01:00:00Z",
+      "user_pickup": false
+    }
+  ],
+  "coverage_notice": "FICTIONAL: coverage is not verified in this example"
+}
